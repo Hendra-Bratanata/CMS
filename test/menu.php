@@ -19,6 +19,7 @@
 		buat_submenu("tag", "Tag", array("admin", "author"));
 	tutup_dropdown(array("admin", "author"));
 	buat_menu("halaman", "file", "Halaman", array("admin", "author"));
+	buat_menu("About", "address-card", "About", array("admin", "author"));
 ?>		
 	</ul>
 </div>

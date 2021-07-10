@@ -1,13 +1,13 @@
 <?php
 function buka_form($link, $id, $aksi){
-	echo'<form method="post" action="'.$link.'&show=action" class="form-horizontal" enctype="multipart/form-data">
+	echo'<form method="get" action="'.$link.'&show=action" class="form-horizontal" enctype="multipart/form-data">
 			<input type="hidden" name="id" value="'.$id.'">
 			<input type="hidden" name="aksi" value="'.$aksi.'">';
 }
 
 function buat_textbox($label, $nama, $nilai, $lebar='4', $tipe="text"){
 	echo'<div class="form-group" id="'.$nama.'">
-			<label for="'.$nama.'" class="col-sm-2 control-label">'.$label.'</label>
+			<label for="'.$nama.'" class=" col-12 control-label">'.$label.'</label>
 			<div class="col-sm-'.$lebar.'">
 			  <input type="'.$tipe.'" class="form-control" name="'.$nama.'" value="'.$nilai.'">
 			</div>
@@ -16,7 +16,7 @@ function buat_textbox($label, $nama, $nilai, $lebar='4', $tipe="text"){
 
 function buat_textarea($label, $nama, $nilai, $class=''){
 	echo'<div class="form-group" id="'.$nama.'">
-			<label for="'.$nama.'" class="col-sm-2 control-label">'.$label.'</label>
+			<label for="'.$nama.'" class="col-12 control-label">'.$label.'</label>
 			<div class="col-sm-10">
 			  <textarea class="form-control '.$class.'" rows="8" name="'.$nama.'">'.$nilai.'</textarea>
 			</div>
@@ -25,7 +25,7 @@ function buat_textarea($label, $nama, $nilai, $class=''){
 
 function buat_combobox($label, $nama, $list, $nilai, $lebar='4'){
 	echo'<div class="form-group" id="'.$nama.'">
-			<label for="'.$nama.'" class="col-sm-2 control-label">'.$label.'</label>
+			<label for="'.$nama.'" class="col-12 control-label">'.$label.'</label>
 			<div class="col-sm-'.$lebar.'">
 			  <select class="form-control" name="'.$nama.'">';
 		foreach($list as $ls){
@@ -50,7 +50,7 @@ function buat_checkbox($label, $nama, $list){
 
 function buat_radio($label, $nama, $list){
 	echo'<div class="form-group" id="'.$nama.'">
-			<label class="col-sm-2 control-label">'.$label.'</label>
+			<label class="col-12 control-label">'.$label.'</label>
 			<div class="col-sm-10">';
 		foreach($list as $ls){
 			echo'<label  for="'.$nama.$ls['val'].'" id="label_'.$nama.$ls['val'].'"> 
@@ -103,10 +103,10 @@ function tutup_form($link){
 	echo'<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">
 				<button type="submit" class="btn btn-primary">
-					<i class="glyphicon glyphicon-floppy-disk"></i> Simpan 
+					<i class="fa fa-save"></i> Simpan 
 				</button>
 				<a class="btn btn-warning" href="'.$link.'">
-					<i class="glyphicon glyphicon-arrow-left"></i> Batal 
+					<i class="fa fa-arrow-left"></i> Batal 
 				</a>
 			</div>
 		</div>
