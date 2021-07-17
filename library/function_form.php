@@ -1,6 +1,6 @@
 <?php
 function buka_form($link, $id, $aksi){
-	echo'<form method="get" action="'.$link.'&show=action" class="form-horizontal" enctype="multipart/form-data">
+	echo'<form method="get" action="'.$link.'" class="form-horizontal" enctype="multipart/form-data">
 			<input type="hidden" name="id" value="'.$id.'">
 			<input type="hidden" name="aksi" value="'.$aksi.'">';
 }
@@ -99,11 +99,11 @@ function buat_imagepicker($label, $nama, $nilai, $lebar='4'){
 		 </div>';
 }
 
-function tutup_form($link){
+function tutup_form($link,$btnName){
 	echo'<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">
 				<button type="submit" class="btn btn-primary">
-					<i class="fa fa-save"></i> Simpan 
+					<i class="fa fa-save"></i>'.$btnName.' 
 				</button>
 				<a class="btn btn-warning" href="'.$link.'">
 					<i class="fa fa-arrow-left"></i> Batal 
