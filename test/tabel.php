@@ -5,10 +5,20 @@
 
 <?php
 	include "../library/function_table.php";
+	include "../library/config.php";
+
+	$dataDariDatabase = $mysqli->query("SELECT * FROM `user`");
+	$ids = 1;
 	
-	buka_tabel(array("Judul"));
-	isi_tabel(1, array("Judul artikel pertama"), "#", 1);
-	isi_tabel(2, array("Judul artikel kedua"), "#", 2);
-	isi_tabel(3, array("Judul artikel ketiga"), "#", 3);
+	buka_tabel(array("USER"));
+	while($data = $dataDariDatabase->fetch_array()){
+
+		$dataNamaDariDatabase = $data['nama'];
+		$dataPassDariDatabase = $data['password'];
+		$dataIdDariDatabase = $data['id'];
+
+		isi_tabel($ids, array($dataNamaDariDatabase),"#",$dataIdDariDatabase);
+		$ids += 1;
+	}
 	tutup_tabel();
 ?>		
