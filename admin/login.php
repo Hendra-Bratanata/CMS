@@ -1,33 +1,41 @@
 
 <?php 
 include "../library/config.php";
-
-if(isset($_GET['nama']) AND isset($_GET['password'])){
-    $dataNamaDariInputUser = $_GET['nama'];
-    $dataPassDariInputUser = $_GET['password'];
+session_start();
+if(isset($_POST['nama']) AND isset($_POST['password'])){
+    $dataNamaDariInputUser = $_POST['nama'];
+    $dataPassDariInputUser = $_POST['password'];
+    $cek = 0;
     $dataDariDatabase = $mysqli->query(" SELECT * FROM `user` ");
     while($data = $dataDariDatabase->fetch_array()){
         $dataNamaDariDatabase = $data['nama'];
         $dataPassDariDatabase = $data['password'];
         $dataEmailDariDatabase = $data['email'];
         $dataIddariDatabase = $data['id'];
-
+       
 
         if($dataNamaDariDatabase == $dataNamaDariInputUser){
+            $cek += 1;
             if($dataPassDariDatabase == $dataPassDariInputUser){
-                header('location:../test/menu.php');
+                $_SESSION['username']     = $dataNamaDariDatabase;
+                $_SESSION['password']     = $dataPassDariDatabase;
+                $_SESSION['iduser']       = $dataIddariDatabase;
+                  
+                $_SESSION['timeout'] = time()+1000;
+                $_SESSION['login'] = 1;
+                header('location: index.php ');
             }
             else{
                 echo '<div class="alert alert-primary" role="alert">
                     <strong>Password Salah</strong>
                 </div>';
             }
-        
-           
         }
-        
-
     }
+    if($cek <= 0 ){
+        echo  '<div class="alert alert-danger" role="alert">
+             <strong>User Tidak Terdaftar</strong>User Tidak Terdaftar   </div>';
+     }
 }
 
 
@@ -50,7 +58,7 @@ if(isset($_GET['nama']) AND isset($_GET['password'])){
                     buka_form("login.php", 1, "edit");
                     buat_textbox("Username", "nama", "", 12);
                     buat_textbox("Password", "password", "", 12, "password");
-                    tutup_form("register.php", "Login", "Register");
+                    tutup_form("register.php", "Register", "Login");
                     ?>
                 </div>
             </div>

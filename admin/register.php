@@ -1,26 +1,23 @@
 <?php
 include '../library/config.php';
-if (isset($_GET['nama']) and isset($_GET['password'])) {
-	$pass1 = $_GET['password'];
-	$pass2 = $_GET['re_password'];
+if (isset($_POST['nama']) and isset($_POST['password'])) {
+	$pass1 = $_POST['password'];
+	$pass2 = $_POST['re_password'];
 
 	if ($pass1 == $pass2) {
-		$nama = $_GET['nama'];
-		$sql = "INSERT INTO `user`( `nama`, `password`) VALUES ('$nama','$pass1')";
+		$nama = $_POST['nama'];
+		$sql = "INSERT INTO `user`(`nama`, `password`) VALUES ('$nama','$pass1')";
 		$data = $mysqli->query($sql);
 		header("location:login.php");
 	} else {
-		echo '
-		<div class="alert alert-warning alert-dismissible fade show" role="alert">
-		  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-			<span aria-hidden="true">&times;</span>
-		  </button>
-		  <strong>Password Tidak sama</strong> 
-		</div>
 		
-		<script>
-		  $(".alert").alert();
-		</script>';
+		echo '<div class="alert alert-info">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			<strong>Password Tidak sama</strong> Silahkan cek kembali password anda
+		</div>
+	';
+		
+	
 	}
 }
 ?>
@@ -41,7 +38,7 @@ if (isset($_GET['nama']) and isset($_GET['password'])) {
 					buat_textbox("Username", "nama", "", 12);
 					buat_textbox("Password", "password", "", 12, "password");
 					buat_textbox("RePassword", "re_password", "", 12, "password");
-					tutup_form("#", "Register", "Back");
+					tutup_form("login.php", "Back", "Register");
 					?>
 				</div>
 			</div>

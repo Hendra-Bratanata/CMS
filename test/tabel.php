@@ -10,14 +10,14 @@
 	$dataDariDatabase = $mysqli->query("SELECT * FROM `user`");
 	$ids = 1;
 	
-	buka_tabel(array("USER"));
+	buka_tabel(array("USER","Password"));
 	while($data = $dataDariDatabase->fetch_array()){
 
 		$dataNamaDariDatabase = $data['nama'];
 		$dataPassDariDatabase = $data['password'];
 		$dataIdDariDatabase = $data['id'];
 
-		isi_tabel($ids, array($dataNamaDariDatabase),"#",$dataIdDariDatabase);
+		isi_tabel($ids, array($dataNamaDariDatabase,$dataPassDariDatabase),"#",$dataIdDariDatabase);
 		$ids += 1;
 	}
 	tutup_tabel();
