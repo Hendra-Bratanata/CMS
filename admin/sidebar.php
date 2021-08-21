@@ -1,4 +1,5 @@
-<ul class="nav">
+<nav class="navbar">
+<ul class="nav flex-column">
 <?php
 if(!defined("INDEX")) header('location: index.php');
 
@@ -25,3 +26,4 @@ if(!defined("INDEX")) header('location: index.php');
 	buat_menu("backuprestore", "floppy-save", "Backup dan Restore");
 ?>		
 </ul>
+</nav>
