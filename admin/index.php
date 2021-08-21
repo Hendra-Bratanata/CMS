@@ -19,7 +19,6 @@ if(time()<$timeout){
 
 //Mengecek status login
 if(empty($_SESSION['username']) or empty($_SESSION['password']) or $_SESSION['login']==0){
-
 	header('location: login.php');
 }else{
 ?>
@@ -30,23 +29,22 @@ if(empty($_SESSION['username']) or empty($_SESSION['password']) or $_SESSION['lo
 
 	<meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0" />
-	<link type="text/css" rel="stylesheet" href="../plugin/bootstrap-4.6.0-dist/css/bootstrap.min.css">
-<link rel="stylesheet" href="../plugin/font/css/all.css">
-<script src="../plugin/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="../plugin/bootstrap-4.6.0-dist/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../plugin/bootstrap-4.6.0-dist/css/bootstrap.min.css"/>
+	<script src="../plugin/font/css/all.css"></script>
+	<script type="text/javascript" src="../plugin/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 
-<div class="navbar navbar-expand-lg navbar-light bg-light">
-	<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-		<?php include "menu.php"; ?> 
+<nav class="navbar navbar-inverse navbar-fixed-top"> 
+	<div class="container-fluid">
+		<?php include "contoh_menu.php";?> 
 	</div>
 </nav>	
 
 <section class="container-fluid"> 	
 	<div class="row">
 		<div class="col-md-2 col-sm-3 hidden-xs sidebar">
-			<!-- <?php include "sidebar.php"; ?>  -->
+			<?php include "sidebar.php"; ?> 
 		</div>
 		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 			<!-- <?php include "content.php"; ?>  -->
@@ -54,14 +52,18 @@ if(empty($_SESSION['username']) or empty($_SESSION['password']) or $_SESSION['lo
 	</div>
 </section>
 
+
+
 <footer class="navbar navbar-fixed-bottom footer"> 
 	<div class="container-fluid">
-		<p class="text-center">Copyright &copy; devcamp. All right reserved.</p>
+		<p class="text-center">Copyright &copy; Devcamp. All right reserved.</p>
 	</div>
 </footer>
-
-	<script type="text/javascript" src="../plugin/bootstrap-4.6.0-dist/css/bootstrap.min.css"></script>
+	<script type="text/javascript" src="../plugin/bootstrap-4.6.0-dist/js/bootstrap.min.js"></script>
 </body>
 </html>
 
-<?php } ?>
+<?php
+}
+
+?>

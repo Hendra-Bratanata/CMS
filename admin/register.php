@@ -1,14 +1,17 @@
 <?php
 include '../library/config.php';
-if (isset($_POST['nama']) and isset($_POST['password'])) {
-	$pass1 = $_POST['password'];
-	$pass2 = $_POST['re_password'];
-
+if (isset($_GET['nama']) and isset($_GET['password'])) {
+	$pass1 = $_GET['password'];
+	$pass2 = $_GET['re_password'];
+    
 	if ($pass1 == $pass2) {
-		$nama = $_POST['nama'];
-		$sql = "INSERT INTO `user`(`nama`, `password`) VALUES ('$nama','$pass1')";
+		
+		// $passMD = md5($pass1);
+		$nama = $_GET['nama'];
+		$sql = "INSERT INTO `ser`(`nama`, `password`) VALUES ('$nama','$pass1')";
 		$data = $mysqli->query($sql);
-		header("location:login.php");
+		var_dump($data);
+		// header("location:login.php");
 	} else {
 		
 		echo '<div class="alert alert-info">

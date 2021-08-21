@@ -1,7 +1,7 @@
 <?php
 function buka_form($link, $id, $aksi)
 {
-	echo '<form method="POST" action="' . $link . '" class="form-horizontal" enctype="multipart/form-data">
+	echo '<form method="GET" action="' . $link . '" class="form-horizontal" enctype="multipart/form-data">
 			<input type="hidden" name="id" value="' . $id . '">
 			<input type="hidden" name="aksi" value="' . $aksi . '">';
 }

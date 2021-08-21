@@ -1,41 +1,40 @@
-
-<?php 
+<?php
 include "../library/config.php";
 session_start();
-if(isset($_POST['nama']) AND isset($_POST['password'])){
-    $dataNamaDariInputUser = $_POST['nama'];
-    $dataPassDariInputUser = $_POST['password'];
+if (isset($_GET['nama']) and isset($_GET['password'])) {
+    $dataNamaDariInputUser = $_GET['nama'];
+    $dataPassDariInputUser = md5($_GET['password']);
     $cek = 0;
     $dataDariDatabase = $mysqli->query(" SELECT * FROM `user` ");
-    while($data = $dataDariDatabase->fetch_array()){
+    while ($data = $dataDariDatabase->fetch_array()) {
         $dataNamaDariDatabase = $data['nama'];
         $dataPassDariDatabase = $data['password'];
         $dataEmailDariDatabase = $data['email'];
         $dataIddariDatabase = $data['id'];
-       
 
-        if($dataNamaDariDatabase == $dataNamaDariInputUser){
+
+        if ($dataNamaDariDatabase == $dataNamaDariInputUser) {
             $cek += 1;
-            if($dataPassDariDatabase == $dataPassDariInputUser){
+            if ($dataPassDariDatabase == $dataPassDariInputUser) {
                 $_SESSION['username']     = $dataNamaDariDatabase;
                 $_SESSION['password']     = $dataPassDariDatabase;
                 $_SESSION['iduser']       = $dataIddariDatabase;
-                  
-                $_SESSION['timeout'] = time()+1000;
+
+                $_SESSION['leveluser']  = "admin";
+                $_SESSION['timeout'] = time() + 1000;
                 $_SESSION['login'] = 1;
                 header('location: index.php ');
-            }
-            else{
+            } else {
                 echo '<div class="alert alert-primary" role="alert">
                     <strong>Password Salah</strong>
                 </div>';
             }
         }
     }
-    if($cek <= 0 ){
+    if ($cek <= 0) {
         echo  '<div class="alert alert-danger" role="alert">
              <strong>User Tidak Terdaftar</strong>User Tidak Terdaftar   </div>';
-     }
+    }
 }
 
 
@@ -62,7 +61,7 @@ if(isset($_POST['nama']) AND isset($_POST['password'])){
                     ?>
                 </div>
             </div>
-        </div>X 
+        </div>X
     </div>
 </div>
 <style>
