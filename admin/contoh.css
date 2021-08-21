@@ -1,0 +1,22 @@
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: darkslategray;
+    color: white;
+    text-align: center;
+}
+#menuAtas{
+    background-color: darkcyan;
+}
+#menuAtas a{
+    color: honeydew;
+}
+#menuSamping{
+    background-color: gray;
+}
+#menuSamping a{
+    font-size: 20px ;
+    color: honeydew;
+}

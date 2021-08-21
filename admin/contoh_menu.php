@@ -1,5 +1,6 @@
-<nav class="navbar navbar-expand-sm">
-    <a class="navbar-brand" href="#">Administrator</a>
+
+<nav class="navbar navbar-expand-sm  " style="margin:0px; padding: 0px; box-shadow: 1px 1px 15px 5px black;">
+    
     <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -14,16 +15,16 @@
             buka_dropdown("th-list", "Tampilan");
             buat_submenu("template", "Template");
             buat_submenu("menu", "Menu");
-            buat_submenu("widget", "Widget");
+
             tutup_dropdown();
 
             ?>
-
         </ul>
 
-        <form class="form-inline my-2 my-lg-0 ">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+        <ul class="nav navbar navbar-right">
+            <?php buat_submenu("widget", "Widget"); ?>
+        </ul>
+
+
     </div>
 </nav>
