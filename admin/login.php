@@ -1,40 +1,58 @@
 <?php
+
 include "../library/config.php";
 session_start();
+
 if (isset($_GET['nama']) and isset($_GET['password'])) {
+
     $dataNamaDariInputUser = $_GET['nama'];
     $dataPassDariInputUser = md5($_GET['password']);
     $cek = 0;
     $dataDariDatabase = $mysqli->query(" SELECT * FROM `user` ");
+
     while ($data = $dataDariDatabase->fetch_array()) {
         $dataNamaDariDatabase = $data['nama'];
         $dataPassDariDatabase = $data['password'];
         $dataEmailDariDatabase = $data['email'];
         $dataIddariDatabase = $data['id'];
 
+        var_dump($dataNamaDariDatabase);
+
 
         if ($dataNamaDariDatabase == $dataNamaDariInputUser) {
-            $cek += 1;
-            if ($dataPassDariDatabase == $dataPassDariInputUser) {
-                $_SESSION['username']     = $dataNamaDariDatabase;
-                $_SESSION['password']     = $dataPassDariDatabase;
-                $_SESSION['iduser']       = $dataIddariDatabase;
-
-                $_SESSION['leveluser']  = "admin";
-                $_SESSION['timeout'] = time() + 1000;
+            $cek = 1;
+            var_dump("ada");
+            if($dataPassDariInputUser == $dataPassDariDatabase){
+                
+                $_SESSION['username'] = $dataNamaDariDatabase;
+                $_SESSION['password'] = $dataPassDariDatabase;
+                $_SESSION['id'] = $dataIddariDatabase;
+                $_SESSION['email'] = $dataEmailDariDatabase;
+                $_SESSION['leveluser'] = 'admin';
+                $_SESSION['timeout'] = time()+1000;
                 $_SESSION['login'] = 1;
-                header('location: index.php ');
-            } else {
+
+
+
+                header('location:index.php');
+            }
+            else{
                 echo '<div class="alert alert-primary" role="alert">
-                    <strong>Password Salah</strong>
+                    <strong>Password salah</strong>
                 </div>';
             }
+            
         }
+       
     }
-    if ($cek <= 0) {
-        echo  '<div class="alert alert-danger" role="alert">
-             <strong>User Tidak Terdaftar</strong>User Tidak Terdaftar   </div>';
+    if($cek == 0){
+       echo '<div class="alert alert-primary" role="alert">
+           <strong>User tidak terdaftar</strong>
+       </div>   ';  
     }
+   
+    
+    
 }
 
 

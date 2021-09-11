@@ -6,12 +6,12 @@ if (isset($_GET['nama']) and isset($_GET['password'])) {
     
 	if ($pass1 == $pass2) {
 		
-		// $passMD = md5($pass1);
+		$passMD = md5($pass1);
 		$nama = $_GET['nama'];
-		$sql = "INSERT INTO `ser`(`nama`, `password`) VALUES ('$nama','$pass1')";
+		$sql = "INSERT INTO `user`(`nama`, `password`) VALUES ('$nama','$passMD')";
 		$data = $mysqli->query($sql);
 		var_dump($data);
-		// header("location:login.php");
+		header("location:login.php");
 	} else {
 		
 		echo '<div class="alert alert-info">

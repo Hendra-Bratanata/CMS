@@ -22,49 +22,48 @@ if (empty($_SESSION['username']) or empty($_SESSION['password']) or $_SESSION['l
 	header('location: login.php');
 } else {
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Administrator</title>
+    <link rel="stylesheet" href="../plugin/bootstrap-4.6.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../plugin/bootstrap-4.6.0-dist/js/bootstrap.min.js">
+    <script src="../plugin/font/css/all.css"></script>
+    <script src="../plugin/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <!-- div 1 -->
+    <div class="contener-fluid">
+      <?php include "menu.php"?>
+    </div>
+    <!-- div 2 -->
+    <div class="contener-fluid">
+        <div class="row">
+            <div class="col-md-3" >
+           <?php include 'sidebar.php'?>
+                
+            </div>
+            <div class="col-md-9" >
+            <?php include 'artikel.php'?>
+            </div>
+        </div>
+    </div>
+    <!-- div 3 -->
+    <div class="contener-fluid" style="text-align: center;">
+        <h6> copy right DEVCAMP </h6>
+    </div>
+    
+</body>
+</html>
 
-	<html>
-
-	<head>
-		<title>Halaman Administrator</title>
-
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0" />
-		<link rel="stylesheet" type="text/css" href="../plugin/bootstrap-4.6.0-dist/css/bootstrap.min.css" />
-		<script src="../plugin/font/css/all.css"></script>
-		<script type="text/javascript" src="../plugin/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-		<link rel="stylesheet" href="contoh.css">
-	</head>
-
-	<body>
-	
-
-		<!-- div 2 -->
-		<div class="container-fluid ">
-			<div class="row">
-				<div class="col-md-2 col-sm-6 hidden-xs" id="menuSamping">
-					<?php include "sidebar.php"; ?>
-				</div>
-				<div class="col-sm-6 col-md-10">
-					<?php include "contoh_menu.php"; ?>
-					<!-- <?php include "content.php"; ?>  -->
-				</div>
-			</div>
-		</div>
-
-		<!-- div 3 -->
-		<div class="footer">
-			<p>Copyright &copy; Devcamp. All right reserved.</p>
-			</footer>
 
 
 
-		<script type="text/javascript" src="../plugin/bootstrap-4.6.0-dist/js/bootstrap.min.js"></script>
-	</body>
-
-	</html>
-
-<?php
+<?php 
 }
 
 ?>
+

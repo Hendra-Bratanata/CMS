@@ -1,11 +1,10 @@
-<?php
-if (!defined("INDEX")) header('location: index.php');
+<?php 
+if(!defined("INDEX")) header('location: index.php');
 ?>
-
-
-<nav class="navbar navbar-expand-sm navbar-light bg-light">
-	<a class="navbar-brand" href="#">ADMINISTRATOR</a>
-	<button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+	<a class="navbar-brand" href="#">Administrator</a>
+	<button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+		aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	</button>
 	<div class="collapse navbar-collapse" id="collapsibleNavId">
